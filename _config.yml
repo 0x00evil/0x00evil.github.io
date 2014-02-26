@@ -1,4 +1,4 @@
-baseurl:/blog
+baseurl:~/blog
 source: .
 pygments: true
 excerpt_separator: ""
