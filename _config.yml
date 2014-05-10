@@ -1,5 +1,5 @@
 source: .
-baseurl: /blog
+
 pygments: true
 excerpt_separator: ""
 
