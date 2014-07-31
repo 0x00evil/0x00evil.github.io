@@ -7,6 +7,9 @@ body {
     line-height: 150%;
      border: 1px solid LightGray;
 }
+h1 {
+    align: center;
+}
 
 a {
     text-decoration: none;
