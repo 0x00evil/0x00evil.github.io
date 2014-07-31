@@ -46,7 +46,9 @@ H4 {
     color: #666666;
 }
 
-
+li {
+    margin-left: 10px;
+}
 
  
 blockquote {
