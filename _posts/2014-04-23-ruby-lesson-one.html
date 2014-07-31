@@ -12,9 +12,9 @@ My OS(operating system) is OS X,so ruby has been already been installed .The ver
 <p>
 There are serval ways to run ruby programms.
 <ul>
-<li><em>ruby</em>: simplely to type at the shell prompt and Ctrl-D to stop.</li>
-<li><em>irb</em>: irb is a Ruby shell.You rub irb from command line.</li>
-<li><em>ruby yourprog.rb</em>: Just put your ruby code in one or more file.Emacs ,vi and Sublime are good editors for us.</li>
+<li>rubysimplely to type at the shell prompt and Ctrl-D to stop.</li>
+<li>irb: irb is a Ruby shell.You rub irb from command line.</li>
+<li>ruby yourprog.rb: Just put your ruby code in one or more file.Emacs ,vi and Sublime are good editors for us.</li>
 </ul>
 </p>
 
@@ -23,8 +23,8 @@ There are serval ways to run ruby programms.
 The standard library that comes with Ruby now contains more than 9,000 methods.People use RDoc or ri to document and view them.
 </p>
 <ul>
-<li><em>RDoc</em>: a system to document Ruby libraries.</li>
-<li><em>ri</em>: a local command-line viewer for the same documentation</li>
+<li>RDoc: a system to document Ruby libraries.</li>
+<li>ri: a local command-line viewer for the same documentation</li>
 </ul>
 
 <h2>Ruby Names</h2>
@@ -67,18 +67,28 @@ Ruby uses a conventon that may seem strange at first:the first characters of a n
 
 <h2>Ruby‘s Data Structure</h2>
 <ul>
-<li><em>Array</em>:</li>
-<li><em>Hash</em>:</li>
+<li>Array:collections of any type of object indexed with integer.eg:[1,2,3],['a','b','c'],[1,[1,'a'],a]:</li>
+<li>Hash:collections of any type of object indexed with any object. eg:{1 => 'one',2 => 'two',3 => 'three'}</li>
+<li>String:</li>
+<li>Integer:</li>
+<li>Float:</li>
+<li>Complex:</li>
 </ul>
-<hr />
+
 <h2>Symbols</h2>
 <p>
 </p>
 
 <h2>Control Structures</h2>
 <ul>
-<li><em>if statement:</em></li>
-<li><em>while loop:</em></li>
+<li>if:</li>
+<li>unless:</li>
+</ul>
+
+<h2>Loop Structures</h2>
+<li>while:</li>
+<li>for:</li>
+<li>loop:</li>
 </ul>
 
 <h2>Regular Expression</h2>
@@ -92,8 +102,8 @@ Ruby uses a conventon that may seem strange at first:the first characters of a n
 <li>Perl +Python/ # Perl,one or more spaces,and Python</li>
 <li>/Perl\s+Python/ # Perl,whitespace characters,then Python</li>
 <li>Ruby (Perl|Python) # Ruby,a space,and either Perl or Python</li>
-<li>/ab+c/ matches a string containing an <em>a</em> followedby one or more <em> b's</em>,followed by a <em>c</em>.</li>
-<li>/ab*c/ creates a regular expression that matches one <em>a</em>,zero or more<em>b's</em>,and one <em>c</em>.</li>
+<li>/ab+c/ matches a string containing an a followedby one or more  b's,followed by a c.</li>
+<li>/ab*c/ creates a regular expression that matches one a,zero or moreb's,and one c.</li>
 <li>\s matches a whitespace character(space,tab,newline,and so on).</li>
 <li>\d matches any digit.</li>
 <li>\w matches any character that may appear in a typical word.</li>
@@ -102,7 +112,7 @@ Ruby uses a conventon that may seem strange at first:the first characters of a n
 
 <h2>Blocks and Iterators</h2>
 <p>
-Code blocks are just chunks of code between braces or between <em>do</em> and <em>end</em>.
+Code blocks are just chunks of code between braces or between do and end.
 </p>
 <ul>
 <li>
@@ -129,7 +139,7 @@ puts "End of method"<br />
 end<br />
 </code>
 call_block { puts "In the block"}<br />
-<em>produces:</em><br />
+produces:<br />
 Start of method<br />
 In the block<br />
 In the block<br />
@@ -143,7 +153,7 @@ yield("Andy","goodbye")<br />
 end<br />
 </code>
 who_says_what {|person,phrase| puts"#{person} says #{phrase}"}<br />
-<em>produces:</em><br />
+produces:<br />
 Dave says hello<br />
 Andy says goodbye
 </li>
