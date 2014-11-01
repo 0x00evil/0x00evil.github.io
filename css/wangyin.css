@@ -107,3 +107,7 @@ img {
 hr {
     color: LightGrey;
 }
+
+td {
+  text-align: center;
+}
