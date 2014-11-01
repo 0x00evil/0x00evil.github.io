@@ -6,6 +6,7 @@ body {
     width: 50%;
     line-height: 150%;
     border: 1px solid LightGrey;
+
 }
 
 H1 {
@@ -19,10 +20,10 @@ H2 {
     margin-top: 60px;
     margin-bottom: 40px;
     padding: 5px;
-    border-bottom: 2px LightGrey solid;
+    border-bottom: 2px  solid;
     width: 90%;
     line-height: 150%;
-    color: #666666;
+
 }
 
 
