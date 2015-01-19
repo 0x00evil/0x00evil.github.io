@@ -17,9 +17,8 @@ a {
     display: block;
     target: _blank;
 }
-li { 
-    margin-left: 40%;
-}
+li {
+   text-align:center;
 
 .title {
     cursor: pointer;
