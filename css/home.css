@@ -8,7 +8,6 @@ body {
      border: 1px solid LightGray;
 }
 h1 {
-    text-align: center;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
 }
 
@@ -17,8 +16,6 @@ a {
     display: block;
     target: _blank;
 }
-li {
-   text-align:center;
 
 .title {
     cursor: pointer;
