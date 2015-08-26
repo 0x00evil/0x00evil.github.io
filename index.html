@@ -2,9 +2,8 @@
 layout: home
 title: 花花太郎
 ---
-<h1 align="center">{{page.title}}</h1>
-<ul>
+<ul class="list-group">
   {% for post in site.posts %}
-  <li><a href="{{site.baseurl}}{{post.url}}" >{{post.title}}</a></li>
+  <li class="list-group-item title"><a href="{{site.baseurl}}{{post.url}}" >{{post.title}}</a></li>
   {% endfor %}
 </ul>
