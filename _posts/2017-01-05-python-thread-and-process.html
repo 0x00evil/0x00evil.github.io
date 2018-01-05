@@ -1,0 +1,43 @@
+---
+layout: default
+title: Python thread and process
+---
+
+<h1>Python的线程和进程 </h1>
+
+
+<p>Python中线程和进程的API非常相似，但是线程和进程在本质上有很大的区别</p>
+<h2>内存</h2>
+<blockquote>线程之间共享内存，进程之间不共享内存</blockquote>
+<p>例子:</p>
+<code>
+    from threading import Thread<br>
+    from multiprocessing import Process<br>
+    <br>
+    class CountdownTask:<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._running = True <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;def terminate(self): <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          self._running = False <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;def run(self, n): <br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           while self._running and n > 0: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              print('T-minus', n) <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              n -= 1 <br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             time.sleep(5) <br />
+    <br />
+    <p># 线程启动</p>
+    c = CountdownTask()<br />
+t = Thread(target=c.run, args=(10,))<br />
+t.start() <br />
+c.terminate() # Signal termination<br />
+t.join()<br />
+
+    <p># 进程启动</p>
+c = CountdownTask()<br>
+p = Process(target=c.run, args=(10,))<br>
+p.start()<br>
+    c.terminate()<br>
+    p.join()<br>
+</code>
+
+<p>用线程的方式启动，只会打印10， 而用进程的方式，会打印10到1</p>
