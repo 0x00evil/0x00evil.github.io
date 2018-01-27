@@ -1,0 +1,37 @@
+---
+layout: default
+title: Python多进程间共享数据
+---
+
+<h1>Python中的共享数据结构</h1>
+
+<p>并发编程中，通常会遇到一类问题：<b>多个进程对同一个数据进行操作。</b></p>
+<p>下面用Python实现这一功能：</p>
+<pre><code>import multiprocessing as mp
+
+def a(l, n):
+    l.append(n)
+
+ps = []
+with mp.Manager() as manager:
+    l = manager.list()
+    for i in range(10):
+        p = mp.Process(target=a, args=(l, i))
+        ps.append(p)
+        p.start()
+
+    for p in ps:
+        p.join()
+
+    l = list(l)
+
+
+print(l) # [0,1,2,3,4,5,6,7,8,9], 数的顺序不一定固定
+</code></pre>
+
+<h3>需要注意的几个地方</h3>
+<ul>
+    <li>with和multiprocessing.Manager一起使用，需要在with的block内join所有的进程。如果不join，main process在执行到with后面的代码后，manager
+    就会成为无效的，导致程序无法运行的bug</li>
+    <li>multiprocessing.Manager自带的数据结构，在main process中使用时，要进行相应的转换</li>
+</ul>

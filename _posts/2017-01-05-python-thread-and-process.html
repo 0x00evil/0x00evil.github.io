@@ -10,35 +10,36 @@ title: Python thread and process
 <h2>内存</h2>
 <blockquote>线程之间共享内存，进程之间不共享内存</blockquote>
 <p>例子:</p>
-<code>
-    import time<br>
-    from threading import Thread<br>
-    from multiprocessing import Process<br>
-    <br>
-    class CountdownTask:<br />
- &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._running = True <br />
-  &nbsp;&nbsp;&nbsp;&nbsp;def terminate(self): <br />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          self._running = False <br />
-  &nbsp;&nbsp;&nbsp;&nbsp;def run(self, n): <br />
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           while self._running and n > 0: <br />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              print('T-minus', n) <br />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              n -= 1 <br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             time.sleep(5) <br />
-    <br />
-    <p># 线程启动</p>
-    c = CountdownTask()<br />
-t = Thread(target=c.run, args=(10,))<br />
-t.start() <br />
-c.terminate() # Signal termination<br />
-t.join()<br />
+<pre><code>
+import time
+from threading import Thread
+from multiprocessing import Process
 
-    <p># 进程启动</p>
-c = CountdownTask()<br>
-p = Process(target=c.run, args=(10,))<br>
-p.start()<br>
-    c.terminate()<br>
-    p.join()<br>
-</code>
+class CountdownTask:
+    def __init__(self):
+        self._running = True
+    def terminate(self):
+         self._running = False
+    def run(self, n):
+         while self._running and n > 0:
+             print('T-minus', n)
+             n -= 1
+             time.sleep(5)
+
+# 线程启动
+
+c = CountdownTask()
+t = Thread(target=c.run, args=(10,))
+t.start()
+c.terminate() # Signal termination
+t.join()
+# 进程启动
+
+c = CountdownTask()
+p = Process(target=c.run, args=(10,))
+p.start()
+c.terminate()
+p.join()
+</code></pre>
 
 <p>用线程的方式启动，只会打印10， 而用进程的方式，会打印10到1</p>
