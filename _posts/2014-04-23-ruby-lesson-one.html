@@ -114,49 +114,45 @@ Ruby uses a conventon that may seem strange at first:the first characters of a n
 <p>
 Code blocks are just chunks of code between braces or between do and end.
 </p>
-<ul>
-<li>
-<code>
+
+<pre><code>
 { puts "Hello"}
-</code>
-</li>
-<br />
-<li>
-<code>
-do<br />
-  club.enroll(person)<br />
-  person.socialize<br />
+</code></pre>
+
+<pre><code>
+do
+  club.enroll(person)
+  person.socialize
 end
-</code>
-</li>
-<li>
-<code>
-def call_block<br />
-puts "Start of method"<br />
-yield<br />
-yield<br />
-puts "End of method"<br />
-end<br />
-</code>
-call_block { puts "In the block"}<br />
-produces:<br />
-Start of method<br />
-In the block<br />
-In the block<br />
-End of method
-</li>
-<li>
-<code>
-def who_says_what<br />
-yield("Dave","hello")<br />
-yield("Andy","goodbye")<br />
-end<br />
-</code>
-who_says_what {|person,phrase| puts"#{person} says #{phrase}"}<br />
-produces:<br />
-Dave says hello<br />
-Andy says goodbye
-</li>
+</code></pre>
+
+<pre><code>
+def call_block
+  puts "Start of method"
+  yield
+  yield
+  puts "End of method"
+end
+call_block { puts "In the block"}
+
+# output:
+# Start of method
+# In the block
+# In the block
+# End of method
+</code></pre>
+
+
+<pre><code>
+def who_says_what
+  yield("Dave","hello")
+  yield("Andy","goodbye")
+end
+who_says_what {|person,phrase| puts"#{person} says #{phrase}"}
+# output:
+# Dave says hello
+# Andy says goodbye
+</code></pre>
 
 <p>
 Use braces for single-line blocks and do/end for multiline blocks.
