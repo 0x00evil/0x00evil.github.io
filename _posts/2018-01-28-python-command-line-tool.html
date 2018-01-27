@@ -1,0 +1,31 @@
+---
+layout: default
+title: 用Python写command line工具
+---
+
+<h1>用Python写command line工具</h1>
+<p>众所周知，Unix系统下的很多命令行工具特别好用，比如: ls, cat, grep, awk,...
+</p>
+<p>用Python可以很容易的写一个命令行工具，例子如下：</p>
+<pre><code>
+import argparse
+
+
+def do_some_work(a, b):
+    pass
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('-p1', '--parameter1', required=True, help='first parameter')
+    ap.add_argument('-p2', '--parameter2', required=True, help='second parameter')
+    args = vars(ap.parse_args())
+    print(args['parameter1'])
+    print(args['parameter2'])
+    do_some_work(args['parameter1'], args['parameter2'])
+
+
+if __name__ == '__main__':
+    main()
+
+
+</code></pre>
